@@ -1,0 +1,196 @@
+// Header Component Styling - Deep Navy & Indigo SaaS Theme
+$bg-header: #0e1424;
+$border-header: #1e293b;
+$dropdown-bg: #151d30;
+$dropdown-border: #29354d;
+$accent-indigo: #6366f1;
+$accent-indigo-hover: #4f46e5;
+$text-primary: #f8fafc;
+$text-muted: #94a3b8;
+$text-dim: #64748b;
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba($bg-header, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid $border-header;
+  z-index: 100;
+  transition: all 0.2s ease;
+}
+
+.header-container {
+  max-width: 1280px;
+  padding: 0 1.5rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+// Logo Section
+.header-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  cursor: pointer;
+
+  .logo-text {
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .logo-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 0.15rem 0.45rem;
+    border-radius: 9999px;
+  }
+}
+
+// Profile Section
+.header-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+// Avatar Button
+.avatar-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $accent-indigo 0%, #8b5cf6 100%);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.45);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+// Dropdown Profile Card
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 260px;
+  background-color: $dropdown-bg;
+  border: 1px solid $dropdown-border;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: dropdownFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// User Info in Dropdown
+.dropdown-user-info {
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  .user-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $text-primary;
+    line-height: 1.25;
+    word-break: break-all;
+  }
+
+  .user-email {
+    font-size: 0.8rem;
+    color: $text-muted;
+    line-height: 1.25;
+    word-break: break-all;
+  }
+}
+
+// Divider
+.dropdown-divider {
+  height: 1px;
+  background-color: $dropdown-border;
+  margin: 0;
+}
+
+// Sign Out Button
+.dropdown-signout-button {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  background-color: transparent;
+  color: #f87171;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: left;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+  }
+
+  &:active {
+    background-color: rgba(239, 68, 68, 0.18);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 1rem;
+    height: 60px;
+  }
+
+  .header-logo {
+    font-size: 1.2rem;
+  }
+
+  .profile-dropdown {
+    width: 230px;
+  }
+}
